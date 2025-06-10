@@ -37,10 +37,16 @@
 				<button id="logout-btn">로그아웃</button>
 			</c:if>
 
+<<<<<<< HEAD
 		</div>
 
 		<a href="boardList.do">게시글 조회하기</a>
 		<p>ㅇㅇㅇㅇ</p>
+=======
+	<a href="boardList.do">게시글 조회하기</a>
+
+	<p>ㅇㅇㅇㅇ</p>
+>>>>>>> develop
 		<table>
 			<thead>
 				<tr>
