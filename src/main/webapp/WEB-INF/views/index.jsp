@@ -75,7 +75,7 @@
 	</div>
 
 	<a href="boardList.do">게시글 조회하기</a>
-ㄴㄴㄴㄴㄴ
+
 	<p>ㅇㅇㅇㅇ</p>
 		<table>
 			<thead>
