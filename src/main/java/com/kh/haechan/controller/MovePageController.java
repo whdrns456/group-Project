@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
 import com.kh.haechan.service.UserService;
 import com.kh.heachan.user.model.UserDTO;
 
@@ -29,6 +28,11 @@ public class MovePageController {
 	public String homePage() {
 		return "index";
 	}
+	@RequestMapping("home.do")
+	public String homePageDo() {
+		return "redirect:/";
+	}
+
 
 	@RequestMapping("signup")
 	public String signupPage() {
