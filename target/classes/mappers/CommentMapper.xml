@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kh.haechan.comment.mapper.CommentMapper">
+
+<insert id="insertComment">
+INSERT INTO REPLY(COMMENT_ID, BOARD_NO, USERS_ID, CONTENT)
+VALUES(SEQ_COMMENT_ID.NEXTVAL, #{boardNo}, #{usersId}, #{content})
+</insert>
+
+<insert id="insertReply">
+INSERT INTO REPLY(COMMENT_ID, BOARD_NO, USERS_ID, CONTENT, PARENT_ID)
+VALUES(SEQ_COMMENT_ID.NEXTVAL, #{boardNo}, #{usersId}, #{content}, #{parentId})
+</insert>
+
+<update id="deleteComment">
+		UPDATE REPLY SET STATUS = 'n' WHERE COMMENT_ID = #{commentId}
+</update>
+
+<update id="updateComment">
+		UPDATE REPLY SET CONTENT = #{content} WHERE COMMENT_ID = #{commentId}
+</update>
+
+
+</mapper>

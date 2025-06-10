@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kh.haechan.mapper.UserMapper">
+
+    <select id="selectUser" resultType="com.kh.heachan.user.model.UserDTO">
+        SELECT USERS_ID, USERS_PASSWORD  FROM USERS
+        WHERE USERS_ID = #{usersId} AND USERS_PASSWORD = #{usersPassword}
+    </select>
+    
+    <insert id="userInsert">
+    	INSERT INTO USERS(USERS_NAME, USERS_ID, USERS_PASSWORD)
+    	VALUES(#{usersName}, #{usersId}, #{usersPassword})
+    </insert>
+</mapper>

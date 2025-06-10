@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kh.haechan.board.mapper.BoardMapper">
+	<select id="selectBoard" resultType="com.kh.haechan.board.model.BoardDTO">
+	SELECT * FROM BOARD WHERE STATUS = 'y'
+	</select>
+	
+	<select id="selectBoardDetail" resultType="com.kh.haechan.board.model.BoardDTO">
+	SELECT * FROM BOARD WHERE BOARD_NO = #{boardNo}
+	</select>
+	
+	<update id="increaseReadCount">
+	UPDATE BOARD SET READ_COUNT = READ_COUNT + 1  WHERE BOARD_NO = #{boardNo}
+	</update>
+	
+	<update id="updateBoard" parameterType="com.kh.haechan.board.model.BoardDTO">
+	    UPDATE BOARD 
+    SET 
+        TITLE = #{title, jdbcType=VARCHAR},
+        CONTENT = #{content, jdbcType=VARCHAR}
+    WHERE BOARD_NO = #{boardNo, jdbcType=VARCHAR}
+	</update>
+	
+	<update id="deletedBoard">
+	UPDATE BOARD SET STATUS = 'n' WHERE BOARD_NO = #{boardNo}
+	</update>
+	
+	<insert id="insertBoard">
+		INSERT INTO BOARD(TITLE, CONTENT, WRITER)
+		VALUES(#{title}, #{content}, #{writer})
+	</insert>
+	
+	<select id="searchReply" resultType="com.kh.haechan.reply.model.ReplyDTO">
+		SELECT * FROM REPLY
+		WHERE BOARD_NO = #{boardNo} AND STATUS = 'y'
+		ORDER BY NVL(PARENT_ID, COMMENT_ID), COMMENT_ID
+	</select>
+	
+	
+	
+</mapper>
